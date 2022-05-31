@@ -25,4 +25,4 @@ const cost = 100;
 // constant cost is being declared.
 
 // Identifiers
-// cost and taxRate are both identifiers.
+// "cost" and "taxRate" are both identifiers.
