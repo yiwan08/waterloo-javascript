@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise drawing initials</title>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="300"></canvas>
+    <script>
+      var myCanvas = document.getElementById("thecanvas");
+      var context = myCanvas.getContext("2d");
+
+      context.lineWidth = 2;
+      context.strokeStyle = "blue";
+
+      // Draw the letter C
+
+      context.arc(100, 100, 50, Math.PI, 0);
+      context.stroke();
+
+      context.moveTo(50, 100);
+      context.lineTo(50, 150);
+      context.stroke();
+
+      context.moveTo(150, 150);
+      context.arc(100, 150, 50, 0, Math.PI);
+      context.stroke();
+
+      // Draw the letter S
+
+      context.moveTo(200, 100);
+
+      context.arc(250, 100, 50, Math.PI, 0);
+      context.stroke();
+
+      context.moveTo(200, 100);
+      context.lineTo(300, 150);
+      context.stroke();
+
+      context.moveTo(300, 150);
+      context.arc(250, 150, 50, 0, Math.PI);
+      context.stroke();
+    </script>
+  </body>
+</html>
