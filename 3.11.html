@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using the canvas</title>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="300"></canvas>
+    <script>
+      var myCanvas = document.getElementById("thecanvas");
+      var context = myCanvas.getContext("2d");
+
+      // Setting line style
+      context.lineWidth = 20;
+      context.strokeStyle = "blue";
+      context.lineCap = "round";
+
+      // Drawing a line from (10, 20) to (300, 20)
+      context.moveTo(10, 20);
+      context.lineTo(300, 20);
+      context.stroke();
+
+      // Drawing a shape
+      context.beginPath();
+      context.moveTo(10, 40);
+      context.lineTo(10, 80);
+      context.lineTo(300, 80);
+      context.closePath();
+
+      // Filling the shape
+      context.fillStyle = "red";
+      context.fill();
+
+      // Adding an outline for the shape
+      context.lineWidth = 10;
+      context.strokeStyle = "orange";
+      context.stroke();
+    </script>
+  </body>
+</html>
