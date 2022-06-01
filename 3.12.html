@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using the canvas</title>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="300"></canvas>
+    <script>
+      var myCanvas = document.getElementById("thecanvas");
+      var context = myCanvas.getContext("2d");
+
+      // Places text 
+      context.font = "20px Times";
+      context.fillText("This is some text.", 300, 100);
+
+      // Sets values for the lines and fill
+      context.lineWidth = 20;
+      context.strokeStyle = "blue";
+      context.fillStyle = "red";
+
+      // Draws the circle, fills it, and adds the outline
+      context.arc(200, 200, 40, 0, 2 * Math.PI);
+      context.fill();
+      context.stroke();
+
+      // Draws the rectangle, fills it, and adds the outline
+      context.rect(450, 10, 50, 70);
+      context.fill();
+      context.stroke();
+    </script>
+  </body>
+</html>
