@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using DOM navigation</title>
+  </head>
+  <body>
+    <p>This is Block 1.</p>
+    <ol>
+      <li>This is item 1.</li>
+      <li id="theItem">This is item 2.</li>
+      <li>This is item 3.</li>
+    </ol>
+    <ul>
+      <li>This is item a.</li>
+      <li>This is item b.</li>
+      <li>This is item c.</li>
+    </ul>
+    <script>
+      var bodyNode = document.body;
+      var itemNode = document.getElementById("theItem");
+      var itemParent = itemNode.parentNode;
+
+      console.log(itemParent.nodeName);
+      // "OL"
+      console.log(itemParent.nextElementSibling.nodeName);
+      // "UL"
+      console.log(bodyNode.firstElementChild.nodeName);
+      // "P"
+      console.log(bodyNode.lastElementChild.nodeName);
+      // "SCRIPT"
+      console.log(itemNode.firstChild.nodeName);
+      // "#text"
+      console.log(itemNode.firstChild.nodeValue);
+      // "This is item 2."
+      console.log(itemNode.firstChild.nodeType);
+      // 3
+    </script>
+  </body>
+</html>
