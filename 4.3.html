@@ -1,0 +1,46 @@
+<!-- Example 1 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <p id="para">This is a paragraph.</p>
+    <a id="link">This is a link.</a>
+    <ul id="list">
+      <li id="item">This is a list item</li>
+    </ul>
+    <script>
+        var docNode = document.documentElement;
+        var itemNode = document.getElementById("para");
+
+        console.log(docNode.nodeType);
+        // 1
+        console.log(docNode.nodeName);
+        // HTML
+        console.log(docNode.nodeValue);
+        // null
+
+        console.log("The value of the nodeType property of the paragraph node is " + itemNode.nodeType);
+        console.log("The value of the nodeName property of the paragraph node is " + itemNode.nodeName);
+        console.log("The value of the nodeValue property of the paragraph node is " + itemNode.nodeValue);
+</script>
+  </body>
+</html>
+
+<!-- Example 2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+  <div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+  </div>
+  <script>
+    var para = document.createElement("p");
+    var node = document.createTextNode("This is new.");
+    para.appendChild(node);
+    var element = document.getElementById("div1");
+    element.appendChild(para);
+  </script>
+  </body>
+</html>
