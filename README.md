@@ -1,3 +1,5 @@
 # waterloo-javascript
 
--- haha, hope i can finish the course and not quit :]
+-- haha, hope I can finish the course and not quit :]
+
+-- geeze, I don't understand why we need to use the node tree (sobbing)
