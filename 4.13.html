@@ -1,0 +1,72 @@
+<!-- Using the DOM -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise using DOM</title>
+    <link rel="stylesheet" href="dom.css">
+    <style>
+      table {
+          border-collapse: collapse;
+      }
+
+      td {
+          text-align: center;
+          width: 3em;
+          height: 3em;
+          border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // assign body to a variable, assign "table" to the variable.
+      var bodyNode = document.body;
+      var tableNode = document.createElement("table");
+      
+      // create the rows, assign "tr" to the rows.
+      var rowOneNode = document.createElement("tr");
+      var rowTwoNode = document.createElement("tr");
+      
+      // create the items, assign "td" to the rows.
+      var itemOneNode = document.createElement("td");
+      var itemTwoNode = document.createElement("td");
+      var itemThreeNode = document.createElement("td");
+      var itemFourNode = document.createElement("td");
+      var itemFiveNode = document.createElement("td");
+      var itemSixNode = document.createElement("td");
+      
+      // create the texts.
+      var textOneNode = document.createTextNode("Item 1.");
+      var textTwoNode = document.createTextNode("Item 2.");
+      var textThreeNode = document.createTextNode("Item 3.");
+      var textFourNode = document.createTextNode("Item 4.");
+      var textFiveNode = document.createTextNode("Item 5.");
+      var textSixNode = document.createTextNode("Item 6.");
+      
+      // assign each item with a text.
+      itemOneNode.appendChild(textOneNode);
+      itemTwoNode.appendChild(textTwoNode);
+      itemThreeNode.appendChild(textThreeNode);
+      itemFourNode.appendChild(textFourNode);
+      itemFiveNode.appendChild(textFiveNode);
+      itemSixNode.appendChild(textSixNode);
+      
+      // append item with text to the 3 rows.
+      rowOneNode.appendChild(itemOneNode);
+      rowOneNode.appendChild(itemTwoNode);
+      rowOneNode.appendChild(itemThreeNode);
+      rowTwoNode.appendChild(itemFourNode);
+      rowTwoNode.appendChild(itemFiveNode);
+      rowTwoNode.appendChild(itemSixNode);
+      
+      // append the 2 rows to the table.
+      tableNode.appendChild(rowOneNode);
+      tableNode.appendChild(rowTwoNode);
+      
+      // append the table to the body.
+      bodyNode.appendChild(tableNode);
+    </script>
+  </body>
+</html>
