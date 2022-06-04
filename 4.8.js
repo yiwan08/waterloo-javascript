@@ -40,7 +40,7 @@ item.setAttribute("style", "fontSize: 2em");
       <p>This too will be lost.</p>
       <p>And also this one.</p>
     </div>
-    <script src="attributes.js">
+    <script>
       var redLargeNode = document.getElementById("redlarge");
       var blueNode = document.getElementById("blue");
       var changeClassNode = document.getElementById("changeclass");
