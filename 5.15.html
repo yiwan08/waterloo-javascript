@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise clicking a table entry</title>
+    <style>
+      td {
+          text-align: center;
+          width: 2em;
+          height: 2em;
+          padding: 0;
+          margin: 0;
+          border: 2px black solid;
+      }
+
+      .yellow {
+          background-color: yellow;
+      }
+    </style>
+    <script>
+      window.onload = startFunction;
+      // remember this line.
+      
+      function startFunction() {
+          var button = document.getElementById("clicker");
+        
+          button.addEventListener("click", function() {
+              this.setAttribute("class", "yellow");
+          })
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      <tr>
+        <td>A</td>
+        <td id="clicker">Z</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+    </table>
+  </body>
+</html>
