@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Solution to exercise using form input to draw circles </title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var myCanvas = document.getElementById("thecanvas");
+          var context = myCanvas.getContext("2d");
+          var button = document.getElementById("circlebutton");
+          button.addEventListener("click", function() {
+              var radius = parseInt(document.getElementById("radius").value);
+              var xValue = parseInt(document.getElementById("xentry").value);
+              var yValue = parseInt(document.getElementById("yentry").value);
+              var colour = document.getElementById("colour").value;
+              drawCircle(context, radius, xValue, yValue, colour);
+          });
+      }
+
+      function drawCircle(context, radius, x, y, colour) {
+          context.lineWidth = 1;
+          context.strokeStyle = colour;
+          context.fillStyle = colour;
+
+          context.beginPath();
+          context.arc(x, y, radius, 0, 2 * Math.PI);
+          context.stroke();
+          context.fill();
+
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="100"></canvas>
+    <form>
+      <fieldset>
+        <legend>Enter a circle:</legend>
+        <label for="radius">
+          radius
+        </label>
+        <input id="radius" type="text"><br>
+        <label for="xentry">
+          x-coordinate
+        </label>
+        <input id="xentry" type="text"><br>	  
+        <label for="yentry">
+          y-coordinate
+        </label>
+        <input id="yentry" type="text"><br>
+        <label for="colour">
+          colour
+        </label>
+        <input id="colour" type="text"><br>
+      </fieldset>
+      <p><input id="circlebutton" type="button" value="Draw the circle"></p>
+    </form>
+  </body>
+</html>
