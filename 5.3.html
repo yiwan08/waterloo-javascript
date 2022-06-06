@@ -1,0 +1,30 @@
+<!-- Example 1 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using a function definition</title>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="300"></canvas>
+    <script>
+      var myCanvas = document.getElementById("thecanvas");
+      var context = myCanvas.getContext("2d");
+
+      drawCircle(context, 100, 100, 40, "red");
+      drawCircle(context, 100, 100, 20, "blue");
+
+      function drawCircle(context, x, y, radius, colour) {
+          context.lineWidth = 1;
+          context.strokeStyle = colour;
+          context.fillStyle = colour;
+
+          context.beginPath();
+          context.arc(x, y, radius, 0, 2 * Math.PI);
+          context.stroke();
+          context.fill();
+      }
+    </script>
+  </body>
+</html>
