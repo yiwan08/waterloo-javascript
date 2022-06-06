@@ -1,0 +1,27 @@
+<!-- Changing a button -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise using an event listener on a button</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var text = document.getElementById("thisbutton");
+
+          text.addEventListener("click", changeText);
+
+          function changeText() {
+              this.textContent = "Done!";
+              this.setAttribute("style", "font-weight: bold");
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <button id="thisbutton">Click to make changes</button>
+    <p id="answerhere"></p>
+  </body>
+</html>
