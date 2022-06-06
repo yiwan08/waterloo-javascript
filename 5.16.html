@@ -1,0 +1,48 @@
+<!-- Events for forms -->
+
+<!--
+onfocus: the cursor is on a field.
+onblur: the cursor is moved away from a field.
+onchange: a field is changed.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">   
+    <title>Example using focus</title>
+    <style>
+      .blueback {
+          background-color: blue;
+      }
+
+      .grayback {
+          background-color: gray;
+      }
+    </style>
+    <script src="focus.js">
+      window.onload = startFunction;
+
+      function startFunction() {
+          var textInput = document.getElementById("mytext");
+
+          textInput.addEventListener("focus", function() {
+              this.setAttribute("class", "blueback");
+          });
+
+          textInput.addEventListener("blur", function() {
+              this.className = "grayback";
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Useless form</legend>
+        <label for="mytext" id="thelabel">Add text here</label> 
+        <input type="text" id="mytext">
+      </fieldset>
+    </form>
+  </body>
+</html>
