@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using event listeners and this</title>
+    <script>
+      window.onload = startFunction;
+      function startFunction() {
+          var thisButton = document.getElementById("thisbutton");
+          var thatButton = document.getElementById("thatbutton");
+
+          thisButton.addEventListener("click", changeColor);
+          thatButton.addEventListener("click", changeColor);
+
+          function changeColor() {
+              this.setAttribute("style", "color: red");
+          }
+      }
+     </script>
+  </head>
+  <body>
+    <button id="thisbutton">Click to change color</button>
+    <button id="thatbutton">Click to change color</button>
+    <p id="answerhere"></p>
+  </body>
+</html>
