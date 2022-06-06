@@ -1,0 +1,34 @@
+<!-- Using text input -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using text input</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var button = document.getElementById("enterbutton");
+
+          button.addEventListener("click", function() {
+              var entered = document.getElementById("colour").value;
+              this.setAttribute("style", "color:"+ entered);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Type in a colour</legend>
+        <label for="colour">
+          Type here:
+        </label>
+        <input id="colour" type="text">
+      </fieldset>
+      <p><input id="enterbutton" type="button"
+            value="Change button text to colour entered"></p>
+    </form>
+  </body>
+</html>
