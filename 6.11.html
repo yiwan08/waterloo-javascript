@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise using iteration and the DOM</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var bodyNode = document.body;
+          var listNode = document.createElement("ol");
+          var i;
+          bodyNode.appendChild(listNode);
+
+          for(i = 0; i < 10; i++) {
+              var itemNode = document.createElement("li");
+              number = i + 1;
+              var text = "This is item " + number;
+              var textNode = document.createTextNode(text);
+              listNode.appendChild(itemNode);
+              itemNode.appendChild(textNode);
+          }
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
