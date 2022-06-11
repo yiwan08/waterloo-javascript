@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise using clicks and branching</title>
+    <style>
+      td {
+        background-color: yellow;
+        text-align: center;
+        width: 2em;
+        height: 2em;
+        padding: 0;
+        margin: 0;
+        border: 2px black solid;
+      }
+
+      .orange {
+        background-color: orange;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+    </style>
+    <script>
+      window.onload = startFunction();
+      
+      function startFunction() {
+        var clicker = document.getElementById("clicker");
+        
+        clicker.addEventListener("click", function() {
+          if(this.getAttribute("class") == "orange") {
+            this.setAttribute("class", "yellow");
+          } else if(this.getAttribute("class") == "yellow") {
+            this.setAttribute("class", "orange");
+          };
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      <tr>
+        <td>A</td>
+        <td id="clicker">Z</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+    </table>
+  </body>
+</html>
