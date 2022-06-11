@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise using iteration and the canvas</title>
+    <script>
+      window.onload = startFunction();
+      function startFunction() {
+          var myCanvas = document.getElementById("thecanvas");
+          var context = myCanvas.getContext("2d");
+          var centerX = 200;
+          var centerY = 200;
+          var radius = 100;
+          var counter = 0;
+          var colour = "red";
+
+          do {
+            drawCircle(context, radius, centerX, centerY, colour);
+            radius -= 10;
+            counter++;
+            if(counter % 2 == 0) {
+              colour = "red";
+            } else {
+              colour = "blue";
+            }
+          } while(counter < 10);
+        
+          // OR
+        
+          for(counter = 0; counter < 10; counter++) {
+                drawCircle(context, radius, centerX, centerY, colour);
+                if(counter % 2 == 0) {
+                  colour = "red";
+                } else {
+                  colour = "blue";
+                }
+                radius -= 10;
+              }
+          }
+      }
+
+      function drawCircle(context, radius, x, y, colour) {
+          context.lineWidth = 1;
+          context.strokeStyle = colour;
+          context.fillStyle = colour;
+
+          context.beginPath();
+          context.arc(x, y, radius, 0, 2 * Math.PI);
+          context.stroke();
+          context.fill();
+      }  
+    </script>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="300"></canvas>
+  </body>
+</html>
