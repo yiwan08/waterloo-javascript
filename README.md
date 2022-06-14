@@ -2,4 +2,4 @@
 
 -- haha, hope I can finish the course and not quit :]
 
--- ahhh, you are very close, just 2 more units to go!!!
+-- ahhh, you are very VERY close, just 1 more units to go!!!
