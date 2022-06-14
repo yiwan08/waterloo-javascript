@@ -1,0 +1,88 @@
+<!-- Clicking repeatedly on the Z results in changes to the background colour;
+using the colours in the array rainbow.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise using clicks and arrays</title>
+    <style>
+      td {
+          background-color: yellow;
+          text-align: center;
+          width: 2em;
+          height: 2em;
+          padding: 0;
+          margin: 0;
+          border: 2px black solid;
+      }
+
+      .red {
+          background-color: red;
+      }
+
+      .orange {
+          background-color: orange;
+      }
+
+      .yellow {
+          background-color: yellow;
+      }
+
+      .green {
+          background-color: green;
+      }
+
+      .blue {
+          background-color: blue;
+      }
+
+      .purple {
+          background-color: purple;
+      }
+    </style>
+    <script>
+      window.onload = startFunction;
+      
+      function startFunction() {
+        var clicker = document.getElementById("clicker");
+        var rainbow = ["red", "orange", "yellow", "green", "blue", "purple"];
+        
+        clicker.addEventListener("click", rainbowClick);
+        function rainbowClick() {
+          var currentColour = clicker.getAttribute("class");
+          var currentIndex = rainbow.indexOf(currentColour);
+          var futureIndex = currentIndex + 1;
+          if(currentIndex == 5) {
+            futureIndex = 0;
+          }
+          clicker.setAttribute("class", rainbow[futureIndex]);
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      <tr>
+        <td>A</td>
+        <td id="clicker">Z</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+    </table>
+  </body>
+</html>
