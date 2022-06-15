@@ -1,0 +1,99 @@
+<!-- Example 1: Record Using Arrays -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example entering form data into an array</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var itemButton = document.getElementById("itembutton");
+          var itemArray = [];
+          var length = 0;
+
+          itemButton.addEventListener("click", function() {
+              var item = document.getElementById("item").value;
+              var answer = document.getElementById("answer");
+              itemArray.push(item);
+              // adds "item" to "itemArray".
+              answer.innerHTML = "Item " + item + " added in position " + (itemArray.length - 1);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <label for="item">
+          Enter an item:
+        </label>
+        <input id="item" type="text">
+      </fieldset>
+      <p><input id="itembutton" type="button" value="Record this item"></p>
+      <div id="answer"></div>
+    </form>
+  </body>
+</html>
+
+<!-- Example 2: Sorting and Displaying Array -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise sorting and displaying the array</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var itemButton = document.getElementById("itembutton");
+          var sortButton = document.getElementById("sortbutton");
+          var showButton = document.getElementById("showbutton");
+          var itemArray = [];
+          var length = 0;
+
+          itemButton.addEventListener("click", function() {
+              var item = document.getElementById("item").value;
+              var answer = document.getElementById("answer");
+              itemArray.push(item);
+              answer.innerHTML = "Item " + item + " added in position " + (itemArray.length - 1);
+          });
+          // Add input item to the array.
+        
+          sortButton.addEventListener("click", function() {
+              var answer = document.getElementById("answer");
+              answer.innerHTML = itemArray.sort();
+          });
+          // Show sorted array.
+        
+          showButton.addEventListener("click", function() {
+              var orderedList = document.createElement("ol");
+              for(i = 0; i < itemArray.length; i++) {
+                var list = document.createElement("li");
+                var addIn = list.createTextNode(itemArray[i]);
+                list.appendChild(addIn);
+                orderedList.appendChild(list);
+              }
+           document.body.appendChild(orderedList);
+          });
+          // Show array in ordered list.
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <label for="item">
+          Enter an item:
+        </label>
+        <input id="item" type="text">
+      </fieldset>
+      <p><input id="itembutton" type="button" value="Record this item"></p>
+      <p><input id="sortbutton" type="button" value="Sort array"></p>
+      <p><input id="showbutton" type="button" value="Display array"></p>
+      <div id="answer"></div>
+    </form>
+  </body>
+</html>
