@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise using clicks and array-like objects</title>
+    <link rel="stylesheet" href="multiclick.css">
+    <script src="multiclick.js">
+      window.onload = startFunction;
+      
+      function startFunction() {
+        var tds = document.getElementsByTagName("td");
+        var rainbow = ["red", "orange", "yellow", "green", "blue", "purple"];
+        var i;
+        
+        for(i = 0; i < tds; i++) {
+          tds[i].addEventListener("click", rainbowclickFunction);
+        }
+        
+        function rainbowclickFunction() {
+          var current = this.getAttribute("class");
+          var position = rainbow.indexOf(current);
+          var nextPosition = position + 1;
+          if(position == rainbow.length) {
+            nextPosition = 0;
+          }
+          var next = rainbow[nextPosition];
+            this.setAttribute("class", next);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>        
+        <td>A</td>
+      </tr>
+    </table>
+  </body>
+</html>
