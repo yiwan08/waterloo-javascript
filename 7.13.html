@@ -1,0 +1,148 @@
+<!-- Using DOM and Radio Buttons -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using radio buttons</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var radios = document.getElementsByName("tree");
+          var response = document.getElementById("response");
+          var findOut = document.getElementById("findout");
+
+          findOut.addEventListener("click", function() {
+              var i;
+              for (i=0; i<radios.length; i++) {
+                  if (radios[i].checked) {
+                      response.textContent = "You resemble a " + radios[i].value + ".";
+                  };
+              }
+          });
+      }
+    </script>        
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Which type of tree do you most resemble?</legend>
+        <label for="larch"><input id="larch" value="larch" type="radio" name="tree">Larch</label>
+        <label for="willow"><input id="willow" value="willow" type="radio" name="tree">Willow</label>
+        <label for="baobab"><input id="baobab" value="baobab" type="radio" name="tree" checked>Baobab</label>
+      </fieldset><br>
+      <input id="findout" type="button" value="Click here to find out about yourself"><br>
+      <input type="reset" value="Click here to reset to original value">
+      <p id="response"></p>
+    </form>
+  </body>
+</html>
+
+<!-- Using DOM and Select Object -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using select</title>
+    <script>
+      // Object has methods add() and remove() to make change to options.
+      window.onload = startFunction;
+
+      function startFunction() {
+          var colours = document.getElementById("colours");
+          var response = document.getElementById("response");
+          var findOut = document.getElementById("findout");
+          var addAll = document.getElementById("addall");
+
+          findOut.addEventListener("click", function() {
+              chosen = colours.value;
+              response.textContent = "You like " + chosen + ".";
+          });
+
+          addAll.addEventListener("click", function() {
+              var newOption = document.createElement("option");
+              newOption.text = "all colours";
+              colours.add(newOption);
+          });
+
+      }
+    </script>        
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Favourite colours</legend>
+        <p>Select your favourite colour.</p>
+        <select id="colours">
+          <option>red</option>
+          <option>orange</option>
+          <option>yellow</option>
+          <option>green</option>
+          <option>blue</option>
+          <option>indigo</option>
+          <option>violet</option>
+        </select>
+      </fieldset><br>
+      <input id="findout" type="button" value="Click here to find out about yourself"><br>
+      <input id="addall" type="button" value="Click here to add an option"><br>
+      <p id="response"></p>
+    </form>
+  </body>
+</html>
+
+<!-- Using DOM and Checkboxes -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using checkboxes</title>
+    <script src="formcheckbox.js">
+      window.onload = startFunction;
+
+      function startFunction() {
+          var boxes = document.querySelectorAll("input[type=checkbox]");
+          var response = document.getElementById("response");
+          var findOut = document.getElementById("findout");
+
+          findOut.addEventListener("click", function() {
+              var none = true;
+              var output = "";
+              var i;
+              for (i=0; i<boxes.length; i++) {
+                  if (boxes[i].checked) {
+                      if (none) {
+                          none = false;
+                          output = boxes[i].value;
+                      } else {
+                          output = output + " and " + boxes[i].value;
+                    }
+                  }
+                  if (none) {
+                      response.textContent = "You don't like anything!";
+                  } else {
+                      response.textContent = "You like " + output + ".";
+                  }; // if statement.
+              }; // for loop.
+          }); // anonymous function.
+      } // startFunction.
+    </script>        
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Favourite foods</legend>
+        <p>Select your favourite food(s), if any.</p>
+        <label for="chocolate"><input value="chocolate" type="checkbox">Chocolate</label>
+        <label for="rice"><input value="rice" type="checkbox">Rice</label>
+        <label for="lychees"><input value="lychees" type="checkbox">Lychees</label>	
+        <label for="fufu"><input value="fufu" type="checkbox" checked>Fufu</label>
+      </fieldset><br>
+      <input id="findout" type="button" value="Click here to find out about yourself"><br>
+      <input type="reset" value="Click here to reset to original values">
+      <p id="response"></p>            
+    </form>
+  </body>
+</html>
