@@ -1,0 +1,167 @@
+<!-- Using Object to Draw Circle -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example using objects for circles</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var myCanvas = document.getElementById("thecanvas");
+          var context = myCanvas.getContext("2d");
+          var drawButton = document.getElementById("drawbutton");
+          drawButton.addEventListener("click", function() {
+              var radius = parseInt(document.getElementById("radius").value);
+              var xValue = parseInt(document.getElementById("xentry").value);
+              var yValue = parseInt(document.getElementById("yentry").value);
+              var colour = document.getElementById("colour").value;
+        var newCircle = new CircleInfo(radius, xValue, yValue, colour);
+              drawCircleObject(context, newCircle);
+          });
+      }
+
+      function CircleInfo(radius, x, y, colour) {
+          this.radius = radius;
+          this.x = x;
+          this.y = y;
+          this.colour = colour;
+      }
+
+      function drawCircleObject(context, circle) {
+          context.lineWidth = 1;
+          context.strokeStyle = circle.colour;
+          context.fillStyle = circle.colour;
+
+          context.beginPath();
+          context.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+          context.stroke();
+          context.fill();
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="100"></canvas>
+    <form>
+      <fieldset>
+        <legend>Enter a circle:</legend>
+        <label for="radius">
+          radius
+        </label>
+        <input id="radius" type="text"><br>
+        <label for="xentry">
+          x-coordinate
+        </label>
+        <input id="xentry" type="text"><br>	  
+        <label for="yentry">
+          y-coordinate
+        </label>
+        <input id="yentry" type="text"><br>
+        <label for="colour">
+          colour
+        </label>
+        <input id="colour" type="text"><br>
+      </fieldset>
+      <p><input id="drawbutton" type="button" value="Draw the circle"></p>
+    </form>
+  </body>
+</html>
+
+<!-- Erasing Circles -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise erasing circles</title>
+    <script>
+      window.onload = startFunction;
+
+      function startFunction() {
+          var myCanvas = document.getElementById("thecanvas");
+          var context = myCanvas.getContext("2d");
+          var drawButton = document.getElementById("drawbutton");
+          var eraseButton = document.getElementyById("erasebutton");
+          var circleList = [];
+          drawButton.addEventListener("click", function() {
+              var radius = parseInt(document.getElementById("radius").value);
+              var xValue = parseInt(document.getElementById("xentry").value);
+              var yValue = parseInt(document.getElementById("yentry").value);
+              var colour = document.getElementById("colour").value;
+          var newCircle = new CircleInfo(radius, xValue, yValue, colour);
+                drawCircleObject(context, newCircle);
+          circleList.push(newCircle);
+          });
+        
+          eraseButton.addEventListener("click", function() {
+              var num = document.getElementById("erasenum").value;
+          var toErase = circleList[num];
+          var whiteCircle = new CircleInfo(toEraise,radius + 1, toErase.x, toErase.y, "white");
+              drawCircleObject(context, whiteCircle);
+          });
+      }
+
+      function CircleInfo(radius, x, y, colour) {
+          this.radius = radius;
+          this.x = x;
+          this.y = y;
+          this.colour = colour;
+        
+          this.getInfo = function() {
+          return "A" + this.colour + " circle of radius " + this.radius + " centered at (" + this.x + "," + this.y + ")";
+          };
+        
+          this.area = function() {
+          return Math.PI * (Math.pow(this,radius, 2));
+          };
+      }
+
+      function drawCircleObject(context, circle) {
+          context.lineWidth = 1;
+          context.strokeStyle = circle.colour;
+          context.fillStyle = circle.colour;
+
+          context.beginPath();
+          context.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+          console.log(circle.getInfo());
+          console.log(circle.area());
+          context.stroke();
+          context.fill();
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="500" height="100"></canvas>
+    <form>
+      <fieldset>
+        <legend>Enter a circle:</legend>
+        <label for="radius">
+          radius
+        </label>
+        <input id="radius" type="text"><br>
+        <label for="xentry">
+          x-coordinate
+        </label>
+        <input id="xentry" type="text"><br>	  
+        <label for="yentry">
+          y-coordinate
+        </label>
+        <input id="yentry" type="text"><br>
+        <label for="colour">
+          colour
+        </label>
+        <input id="colour" type="text"><br>
+      </fieldset>
+      <p><input id="drawbutton" type="button" value="Draw the circle"></p>
+      <fieldset>
+        <legend>Erase a circle:</legend>
+        <label for="name">
+          number (starting from 0)
+        </label>
+        <input id="erasenum" type="text"><br>
+      </fieldset>
+      <p><input id="erasebutton" type="button" value="Erase the circle"></p>
+    </form>
+  </body>
+</html>
